@@ -15,33 +15,33 @@ livroController = LivroController()
 
 #Home page
 @app.get("/")
-def home():
-    return livroController.livro_count()
+async def home():
+    return await livroController.livro_count()
 
 #Listar todos os livros
 @app.get("/livros")
-def get_livros():
-    return livroController.get_livros()
+async def get_livros():
+    return await livroController.get_livros()
 
 #Inserir novo livro
 @app.post("/livros")
-def post_livro(novo_livro: LivroModel):
-    return livroController.post_livro(novo_livro)
+async def post_livro(novo_livro: LivroModel):
+    return await livroController.post_livro(novo_livro)
 
 #Consultar um livro com ID
 @app.get("/livros/{id_livro}")
-def get_livro(id_livro: int):
-    return livroController.get_livro(id_livro)
+async def get_livro(id_livro: int):
+    return await livroController.get_livro(id_livro)
 
 #Atualizar um livro com ID
 @app.put("/livros/{id_livro}")
-def atualiza_livro(id_livro: int, novo_livro: LivroModel):
-    return livroController.atualiza_livro(id_livro, novo_livro)
+async def atualiza_livro(id_livro: int, novo_livro: LivroModel):
+    return await livroController.atualiza_livro(id_livro, novo_livro)
 
 #Deletar um livro com ID
 @app.delete("/livros/{id_livro}")
-def delete_livro(id_livro: int):
-    return livroController.delete_livro(id_livro)
+async def delete_livro(id_livro: int):
+    return await livroController.delete_livro(id_livro)
 
 
 if __name__ == '__main__':
